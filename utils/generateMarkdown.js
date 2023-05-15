@@ -44,7 +44,7 @@ function renderLicenseLink(license) {
 
 // function that returns the license section of README
 function renderLicenseSection(license) {
- if (license){
+ if (license!=="NONE"){
   return `The application is covered under ${renderLicenseLink(license)}`
  }else{
   return `No License has been chosen`
@@ -78,8 +78,8 @@ function generateMarkdown(data) {
   ${data.repodata}
 
   ## Questions
-  GitHub Link: https://github.com/${data.name}
-  For more questions please contact - ${data.emailaddress}
+  GitHub Link: https://github.com/${data.githubname}  
+  For more questions please contact - ${data.name} ${data.emailaddress}
 
   ## License
   ${renderLicenseSection(data.license)}

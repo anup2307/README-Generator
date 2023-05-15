@@ -8,12 +8,7 @@ const questions= () =>{
             {
                 type: 'input',
                 name: 'name',
-                message: 'What is your GitHub username?',  
-            },
-            {
-                type: 'input',
-                name: 'emailaddress',
-                message: 'What is your emailaddress?',
+                message: 'What is your name?',  
             },
             {
                 type: 'input',
@@ -26,9 +21,24 @@ const questions= () =>{
                 message: 'Please write a short description of the project-',
             },
             {
+                type: 'input',
+                name: 'dependecies',
+                message: 'What command should be run to install dependencies?',
+            },
+            {
+                type: 'input',
+                name: 'tests',
+                message: 'What command should be run to test your project?',
+            },
+            {
+                type: 'input',
+                name: 'repodata',
+                message: 'What does the user need to know about contributing to the repo: ',
+            },
+            {
                 type: 'list',
                 name: 'license',
-                message: 'What kind of license should your project have',
+                message: 'Select the type pf License you would like to add to your project:',
                 choices:[
                     "MIT",
                     "APCHE2.0",
@@ -39,18 +49,18 @@ const questions= () =>{
             },
             {
                 type: 'input',
-                name: 'dependecies',
-                message: 'What command should be run to install dependencies?',
+                name: 'usage',
+                message: 'Add the Usage information for your Project: ',
             },
             {
                 type: 'input',
-                name: 'tests',
-                message: 'What command should be run to tests?',
+                name: 'githubname',
+                message: 'What is your GitHub username?', 
             },
             {
                 type: 'input',
-                name: 'repodata',
-                message: 'What does the user need to know about contributing to the repo',
+                name: 'emailaddress',
+                message: 'What is your emailaddress?',
             },
         ]);
 };
@@ -66,7 +76,6 @@ function writeToFile(filename, data) {
 function init() {
     questions()
      .then((response)=> writeToFile(filename, generateMarkdown(response)))
-     .then(() => console.log('Success'))
      .catch((err) => console.error(err));
 }
 
